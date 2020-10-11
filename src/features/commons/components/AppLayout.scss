@@ -1,0 +1,22 @@
+.app-layout{
+    background-color: #f0f2f5;
+    height: 100vh;
+    width: 100vw;
+}
+
+.app-layout_header{
+    background: white !important;
+    height: 5rem;
+    padding: 0;
+}
+
+.app-layout_sidebar{
+    background: white !important;
+    padding: 0;
+}
+
+.app-layout_content{
+    background: white;
+    padding: 2rem;
+    margin: 2rem;
+}

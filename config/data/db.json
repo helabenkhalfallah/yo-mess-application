@@ -1,0 +1,111 @@
+{
+    "login": {
+        "userToken": "WwxxsQQSOPDHDG123g",
+        "userFirstName": "Jean",
+        "userLastName": "Dupont",
+        "userAddresse": "22 Avenue Victore Hugo, 94120, Fontenay Sous Bois",
+        "userPhone": "96222354145" 
+    },
+    "update": {
+        "userToken": "WwxxsQQSOPDHDG123g",
+        "userFirstName": "Jean",
+        "userLastName": "Dupont",
+        "userAddresse": "22 Avenue Victore Hugo, 94120, Fontenay Sous Bois",
+        "userPhone": "96222354145" 
+    },
+    "public-messages": [{
+        "id_message": "123456789",
+        "message_type": "public",
+        "message_date": "08/10/2020",
+        "message_text": "Météo semaine prochaine : comme un avant-goût d'hiver, le vent de Nord maintiendra les températures à un niveau inférieur de 5°C aux normales de saison, brrrrrr, préparez vos couettes :)))",
+        "message_sender": {
+            "user_mail": "mellalaurent@hotmail.fr",
+            "user_first_name": "Mella",
+            "user_last_name": "Laurent"
+        },
+        "message_receiver": null
+    }, {
+        "id_message": "987654321",
+        "message_type": "public",
+        "message_date": "08/10/2020",
+        "message_text": "Des vélos électriques proposés en location longue durée !",
+        "message_sender": {
+            "user_mail": "isabellehoward@hotmail.fr",
+            "user_first_name": "Isabelle",
+            "user_last_name": "Howard"
+        },
+        "message_receiver": null
+    }, {
+        "id_message": "87654321",
+        "message_type": "public",
+        "message_date": "08/10/2020",
+        "message_text": "23 ème édition du rallye Coeur de France, youpi !",
+        "message_sender": {
+            "user_mail": "seancarr@hotmail.fr",
+            "user_first_name": "Sean",
+            "user_last_name": "Carr"
+        },
+        "message_receiver": null
+    }],
+    "private-messages": [{
+        "id_message": "AA123456789",
+        "message_type": "private",
+        "message_date": "08/10/2020",
+        "message_text": "Salut Jean, la proposition de décoration pour la chambre des filles est prête, je te propose de passer te voir ce soir ou samedi matin. Je te souhaite une bonne journée. A bientôt !",
+        "message_sender": {
+            "user_mail": "mellalaurent@hotmail.fr",
+            "user_first_name": "Mella",
+            "user_last_name": "Laurent"
+        },
+        "message_receiver": {
+            "user_mail": "jeandupont@gmail.com",
+            "user_first_name": "Jean",
+            "user_last_name": "Dupont"
+        }
+    }, {
+        "id_message": "BB987654321",
+        "message_type": "private",
+        "message_date": "08/10/2020",
+        "message_text": "Salut Jean, que penses-tu de prendre un café ?",
+        "message_sender": {
+            "user_mail": "isabellehoward@hotmail.fr",
+            "user_first_name": "Isabelle",
+            "user_last_name": "Howard"
+        },
+        "message_receiver": {
+            "user_mail": "jeandupont@gmail.com",
+            "user_first_name": "Jean",
+            "user_last_name": "Dupont"
+        }
+    }, {
+        "id_message": "CC987654321",
+        "message_type": "private",
+        "message_date": "08/10/2020",
+        "message_text": "Salut Jean, que penses-tu de venir chez nous ce weekend ?",
+        "message_sender": {
+            "user_mail": "seancarr@hotmail.fr",
+            "user_first_name": "Sean",
+            "user_last_name": "Carr"
+        },
+        "message_receiver": {
+            "user_mail": "jeandupont@gmail.com",
+            "user_first_name": "Jean",
+            "user_last_name": "Dupont"
+        }
+    }, {
+        "id_message": "DD987654321",
+        "message_type": "private",
+        "message_date": "08/10/2020",
+        "message_text": "Salut Sean, j'ai reçu ton message, je te tiens au courant si je peux venir le weekend, à bientôt !",
+        "message_sender": {
+            "user_mail": "jeandupont@gmail.com",
+            "user_first_name": "Jean",
+            "user_last_name": "Dupont"
+        },
+        "message_receiver": {
+            "user_mail": "seancarr@hotmail.fr",
+            "user_first_name": "Sean",
+            "user_last_name": "Carr"
+        }
+    }]
+}
