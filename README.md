@@ -1,26 +1,135 @@
 # yo-mess-application
-YoMess (Your Messages) est une application permettant d'envoyer et recevoir des messages à tout moment et en toute sécurité
+YoMess (Your Messages) est une application permettant d'envoyer et recevoir des messages à tout moment et en toute sécurité.
 
-## Architecture
+## Comment lancer le projet ?
+
+**Installation des dépendances :**
+
+```
+npm install
+```
+
+**Application :**
+
+```
+npm run start:dev
+```
+
+**Serveur Fake :**
+
+```
+npm run start:server
+```
+
+**Routes de tests :**
+
+```
+http://localhost:9001/user-login
+http://localhost:9001/yo-mess-dashboard
+```
 
 
+## Architecture & conception
+https://www.slideshare.net/helabenkhalfallah/yo-messapp
+
+## Bonnes pratiques
+
+### Javascript
+https://medium.com/@helabenkhalfallah/js-like-i-love-to-do-6234570f0d1a
+
+### Clean code & architecture
+https://medium.com/@helabenkhalfallah/how-to-write-a-dont-make-me-think-code-for-front-end-73ff20ef607e
+https://medium.com/@helabenkhalfallah/from-mobile-to-web-development-51b399911897
 
 ## Staff techniques
+
+**Application :**
 - React
 - Redux
 - Redux Saga
 
-Tests unitaires :
+**Tests unitaires :**
 - Jest
 - Enzyme 
 - Jest snapshots
 - Redux Saga Test Plan
 
-
 ## Qualité de code : Eslint & Husky
-- Airbnb
-- Complexité 
-- precommit git hook
+
+**Configuration :**
+- Airbnb style guide
+https://github.com/airbnb/javascript
+
+- Détection de la complexité du code au fur et à mesure du développement :
+
+```
+ // reducing code complexity by capping the amount
+    // of cyclomatic complexity allowed in a program.
+    complexity: [
+      'error',
+      10,
+    ],
+    // enforces a maximum depth that blocks can be nested to reduce code complexity.
+    'max-depth': [
+      'error',
+      3,
+    ],
+    // enforces a maximum number of lines per file,
+    // in order to aid in maintainability and reduce complexity.
+    'max-lines': [
+      'error',
+      {
+        max: 1000,
+        skipBlankLines: true,
+        skipComments: true,
+      },
+    ],
+    // enforces a maximum number of lines per function,
+    // in order to aid in maintainability and reduce complexity.
+    'max-lines-per-function': [
+      'error',
+      {
+        max: 200,
+        skipBlankLines: true,
+        skipComments: true,
+        IIFEs: true,
+      },
+    ],
+    // enforces a maximum number of parameters in function definitions
+    'max-params': [
+      'error',
+      3,
+    ],
+    // enforces a maximum number of statements allowed in function blocks.
+    'max-statements': [
+      'error',
+      20,
+    ],
+    //  enforces a maximum depth that callbacks can be nested
+    'max-nested-callbacks': [
+      'error',
+      2,
+    ],
+    // max line length
+    'max-len': [
+      1,
+      120,
+      2,
+      {
+        ignoreComments: true,
+      },
+    ],
+    'react/jsx-max-props-per-line': [
+      1,
+      {
+        maximum: 1,
+        when: 'always',
+      },
+    ],
+```
+
+
+- Ajout d'un git hook pour assurer des commits atomiques clean :
 
 ```
   "scripts": {
@@ -33,14 +142,85 @@ Tests unitaires :
       "pre-commit": "npm run lint",
     }
   },
-  ```
+```
 
-## Unit tests : jest, couvertude, husky
+- Des différents scripts lint sont ajoutés :
+
+```
+  "scripts": {
+    "lint": "eslint --cache --cache-location ./.eslintcache --ext js,jsx ./src",
+    "lint:debug": "eslint --cache --cache-location ./.eslintcache --ext js,jsx ./src --debug",
+    "lint:fix": "eslint --cache --cache-location ./.eslintcache --ext js,jsx ./src --fix",
+  },
+```
+
+**Note: Utilisation d'eslint cache pour améliorer les performances de l'exécution du linter.**
+
+https://eslint.org/docs/user-guide/command-line-interface#caching
 
 
-## Performance : Webpack Prod, loadable, lazy routes, lazy components, Bundle analyze & bundle phobia
+## Tests unitaires : Jest, Couverture, husky
 
+- Des différents scripts jest sont ajoutés :
+
+```
+    "test": "jest",
+    "test:update": "jest --updateSnapshot",
+    "test:coverage": "jest --coverage --colors"
+```
+
+- Ajout d'un git hook pour assurer qu'avant chaque push, les tests unitaires s'exécutent avec succès :
+
+```
+  "scripts": {
+    "start:dev": "webpack-dev-server -d --config webpack/webpack.dev.config.js --progress --color",
+    "start:server": "json-server --watch ./config/data/db.json",
+    "build:prod": "webpack --config webpack/webpack.prod.config.js --progress --color",
+    "build:analyze": "webpack --config webpack/webpack.prod.config.js --profile --json > stats.json && webpack-bundle-analyzer stats.json",
+    "lint": "eslint --cache --cache-location ./.eslintcache --ext js,jsx ./src",
+    "lint:debug": "eslint --cache --cache-location ./.eslintcache --ext js,jsx ./src --debug",
+    "lint:fix": "eslint --cache --cache-location ./.eslintcache --ext js,jsx ./src --fix",
+    "test": "jest",
+    "test:update": "jest --updateSnapshot",
+    "test:coverage": "jest --coverage --colors"
+  },
+  "husky": {
+    "hooks": {
+      "pre-commit": "npm run lint",
+      "pre-push": "npm test"
+    }
+  },
+```
+
+- test:coverage est utile pour améliorer au fur et à mesure la couverture des tests unitaires.
+
+## Performance : Webpack Prod, loadable, lazy routes, lazy components, Bundle analyze & Bundle Phobia
+
+**Application :**
+- Utilisation du loadable, Suspence & lazy pour créer des lazy routes et des lazy components.
+Ce qui en résulte à avoir des chuncks séparés à charger au moment de besoin.
+
+**Webpack :**
+- Optimisation JS : Terser.
+- Optimisation Style : CssMinimizerPlugin & MiniCssExtractPlugin.
+
+**Avant d'utiliser un package externe, analyser son impact sur la taille finale du bundle avec Bundle Phobia :**
+
+https://bundlephobia.com/
+
+**Webpack Bundle Analyze :**
+Une commande ajoutée pour lancer en local : webpack bundle analyze et optimiser si besoin
+
+```
+ "build:analyze": "webpack --config webpack/webpack.prod.config.js --profile --json > stats.json && webpack-bundle-analyzer stats.json",
+ ```
 
 ## React devtools, Redux devtools & Chrome Audit devtools
+
+Pour assurer une bonne performance, lancer au fur et à mesure de l'avancement de développement les devtools : 
+
+React devtools, Redux devtools & Chrome Audit devtools
+
+https://developers.google.com/web/tools/lighthouse
 
 
