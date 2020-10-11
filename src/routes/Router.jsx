@@ -1,10 +1,11 @@
-import React from 'react';
+import React, { Suspense, } from 'react';
 import {
   BrowserRouter,
   Route,
   Switch,
   Redirect,
 } from 'react-router-dom';
+import Spin from 'antd/es/spin';
 import {
   withReduxBoot,
 } from '../core';
@@ -26,34 +27,42 @@ const {
 } = LazyRoute;
 
 const Router = () => (
-  <BrowserRouter>
-    <Switch>
-      <Route
-        exact
-        path={USER_LOGIN_PATH}
-        component={(props) => (
-          <UserLoginPage
-            {...props}
-            page="UserLoginPage"
-          />
-        )}
-      />
-      <Route
-        exact
-        path={MESSAGES_DASHBOARD_PATH}
-        component={(props) => (
-          <MessagesDashboard
-            {...props}
-            page="MessagesDashboard"
-          />
-        )}
-      />
-      <Redirect
-        from="/"
-        to={USER_LOGIN_PATH}
-      />
-    </Switch>
-  </BrowserRouter>
+  <Suspense fallback={(
+    <Spin
+      spinning
+      size="default"
+    />
+  )}
+  >
+    <BrowserRouter>
+      <Switch>
+        <Route
+          exact
+          path={USER_LOGIN_PATH}
+          component={(props) => (
+            <UserLoginPage
+              {...props}
+              page="UserLoginPage"
+            />
+          )}
+        />
+        <Route
+          exact
+          path={MESSAGES_DASHBOARD_PATH}
+          component={(props) => (
+            <MessagesDashboard
+              {...props}
+              page="MessagesDashboard"
+            />
+          )}
+        />
+        <Redirect
+          from="/"
+          to={USER_LOGIN_PATH}
+        />
+      </Switch>
+    </BrowserRouter>
+  </Suspense>
 );
 
 export default withReduxBoot(
