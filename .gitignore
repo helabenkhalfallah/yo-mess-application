@@ -2,4 +2,4 @@ dist/
 node_modules/
 stats.json
 .eslintcache
-jest/
+jest/tmp/
