@@ -45,9 +45,17 @@ https://medium.com/@helabenkhalfallah/from-mobile-to-web-development-51b39991189
 
 **Application :**
 - React
+https://fr.reactjs.org/
+
 - Redux
+https://redux.js.org/
+
 - Redux Saga
+https://redux-saga.js.org/docs/api/
+
 - antd (librairie des composants atomiques)
+https://ant.design/components/overview/
+
 
 **Tests unitaires :**
 - Jest
