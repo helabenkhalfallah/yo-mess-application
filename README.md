@@ -207,9 +207,11 @@ https://eslint.org/docs/user-guide/command-line-interface#caching
 
 **Application :**
 - Utilisation du loadable, Suspence & lazy pour créer des lazy routes et des lazy components.
+
 Ce qui en résulte à avoir des chuncks séparés à charger au moment de besoin.
 
 **Webpack :**
+
 - Optimisation JS : Terser.
 - Optimisation Style : CssMinimizerPlugin & MiniCssExtractPlugin.
 
@@ -218,6 +220,7 @@ Ce qui en résulte à avoir des chuncks séparés à charger au moment de besoin
 https://bundlephobia.com/
 
 **Webpack Bundle Analyze :**
+
 Une commande ajoutée pour lancer en local : webpack bundle analyze et optimiser si besoin
 
 ```
