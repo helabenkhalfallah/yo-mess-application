@@ -47,6 +47,7 @@ https://medium.com/@helabenkhalfallah/from-mobile-to-web-development-51b39991189
 - React
 - Redux
 - Redux Saga
+- antd (librairie des composants atomiques)
 
 **Tests unitaires :**
 - Jest
