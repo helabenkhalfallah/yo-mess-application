@@ -2,8 +2,12 @@ import React from 'react';
 import { Provider, } from 'react-redux';
 import ReduxStore from './ReduxStore';
 
-// Add the reducer to your store on the `router` key
-// Also apply our middleware for navigating
+/**
+ * Redux Boot HOC : to easy init and configure redux
+ * @param {*} WrappedBootComponent
+ * @param {*} ReducerRoot
+ * @param {*} SagaRoot
+ */
 const withReduxBoot = (
   WrappedBootComponent,
   ReducerRoot,

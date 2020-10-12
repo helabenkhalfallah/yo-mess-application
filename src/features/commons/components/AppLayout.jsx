@@ -1,53 +1,74 @@
-import React from 'react';
+import React, { useState, } from 'react';
 import PropTypes from 'prop-types';
 import Layout from 'antd/es/layout';
 import AppSiderBar from './AppSiderBar';
+import AppHeader from './AppHeader';
+import AppToolBar from './AppToolBar';
 import './AppLayout.scss';
 
 const {
-  Header,
   Content,
 } = Layout;
 
 const AppLayout = ({
   selectedMenu,
   content,
+  showSideBar,
+  onNewMessage,
   onMenuSelected,
-}) => (
-  <Layout
-    className="app-layout"
-  >
-    <Header
-      className="app-layout_header"
+}) => {
+  const [
+    currentSelectedMenu,
+    setCurrentSelectedMenu,
+  ] = useState(selectedMenu);
+  const toolBarTite = currentSelectedMenu === 'home'
+    ? 'Acceuil'
+    : 'Messages Privés';
+  return (
+    <Layout
+      className="app-layout"
     >
-      Header
-    </Header>
-    <Layout>
-      <AppSiderBar
-        className="app-layout_sidebar"
-        selectedMenu={selectedMenu}
-        onMenuSelected={onMenuSelected}
-      />
+      <AppHeader />
       <Layout>
-        <Content
-          className="app-layout_content"
-        >
-          {content}
-        </Content>
+        {showSideBar && (
+          <AppSiderBar
+            className="app-layout_sidebar"
+            selectedMenu={currentSelectedMenu}
+            onMenuSelected={(key) => {
+              setCurrentSelectedMenu(key);
+              onMenuSelected(key);
+            }}
+          />
+        )}
+        <Layout>
+          <Content
+            className="app-layout_content"
+          >
+            <AppToolBar
+              title={toolBarTite}
+              onNewMessage={onNewMessage}
+            />
+            {content}
+          </Content>
+        </Layout>
       </Layout>
     </Layout>
-  </Layout>
-);
+  );
+};
 
 AppLayout.propTypes = {
   selectedMenu: PropTypes.string,
-  onMenuSelected: PropTypes.func,
+  showSideBar: PropTypes.bool,
   content: PropTypes.node.isRequired,
+  onMenuSelected: PropTypes.func,
+  onNewMessage: PropTypes.func,
 };
 
 AppLayout.defaultProps = {
   selectedMenu: 'home',
+  showSideBar: true,
   onMenuSelected: null,
+  onNewMessage: null,
 };
 
 export default AppLayout;

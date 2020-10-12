@@ -5,6 +5,11 @@ import {
 } from '../../../core';
 import Path from '../../../routes/Path';
 
+/**
+ * HOC to handle if user is
+ * connected or not before displaying content
+ * @param {} WrappedComponent
+ */
 const withAuthentication = (WrappedComponent) => {
   class AuthenticationComponent extends React.Component {
     componentDidMount() {

@@ -6,8 +6,13 @@
 
 .app-layout_header{
     background: white !important;
+    border-bottom: 3px solid #1890ff;
     height: 5rem;
     padding: 0;
+}
+
+.app-layout_header--title{
+    margin-top: 0.25rem;
 }
 
 .app-layout_sidebar{

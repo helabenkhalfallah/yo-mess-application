@@ -6,9 +6,13 @@ import {
 } from 'redux';
 import createSagaMiddleware from 'redux-saga';
 
-// Add the combined reducers to the store
-// And apply saga middleware to handle HTTP Effects
+/**
+ * Configure redux store
+ * @param {} ReducerRoot
+ */
 const ReduxStore = (ReducerRoot) => {
+  // Add the combined reducers to the store
+  // And apply saga middleware to handle HTTP Effects
   // prepare reducer and middle ware
   const reduxReducers = combineReducers(ReducerRoot);
   const sagaMiddleware = createSagaMiddleware();

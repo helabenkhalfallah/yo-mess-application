@@ -12,6 +12,11 @@ import 'antd/es/message/style';
 import 'antd/es/layout/style';
 import 'antd/es/menu/style';
 import 'antd/es/popconfirm/style';
+import 'antd/es/list/style';
+import 'antd/es/avatar/style';
+import 'antd/es/modal/style';
+import 'antd/es/result/style';
+import 'antd/es/select/style';
 
 ReactDOM.render(
   // eslint-disable-next-line react/jsx-filename-extension

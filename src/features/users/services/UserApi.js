@@ -8,6 +8,7 @@ const {
   USER_LOGIN_SERVICE_PATH,
   USER_LOGOUT_SERVICE_PATH,
   USER_FRIENDS_SERVICE_PATH,
+  USER_PROFILE_SERVICE_PATH,
 } = UserServicesConstants;
 
 const userLoginQuery = (params) => {
@@ -26,6 +27,18 @@ const userLoginQuery = (params) => {
   return axios({
     method: 'get',
     url,
+    headers,
+  });
+};
+
+const userProfileQuery = () => {
+  const headers = {
+    Authorization: SessionUtils.loadToken(),
+  };
+
+  return axios({
+    method: 'get',
+    url: USER_PROFILE_SERVICE_PATH,
     headers,
   });
 };
@@ -58,6 +71,7 @@ const UserApi = {
   userLoginQuery,
   userLogOutQuery,
   userFriendsQuery,
+  userProfileQuery,
 };
 
 export default UserApi;

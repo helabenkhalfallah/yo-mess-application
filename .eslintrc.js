@@ -20,7 +20,6 @@ module.exports = {
   plugins: [
     '@babel',
     'react',
-    'jsx-a11y',
   ],
   globals: {
     shallow: true,

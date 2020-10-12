@@ -1,12 +1,11 @@
 import React, { Component, } from 'react';
-import {
-  Redirect,
-} from 'react-router-dom';
+import loadable from '@loadable/component';
+import Spin from 'antd/es/spin';
+import Result from 'antd/es/result';
 import {
   ReduxMe,
   Matcher,
 } from '../../../core';
-import Path from '../../../routes/Path';
 import {
   AppLayout,
   withAuthentication,
@@ -20,6 +19,17 @@ import {
   MessagesDispatcher,
 } from '../redux';
 import MessagesPropTypes from '../commons/MessagesPropTypes';
+
+// dynamic load tabs content (load at need)
+const MessagesList = loadable((props) => import(`../components/${props.path}`), {
+  fallback: <Spin spinning />,
+  cacheKey: (props) => props.path,
+});
+
+const MessageAddView = loadable((props) => import(`../components/${props.path}`), {
+  fallback: <Spin spinning />,
+  cacheKey: (props) => props.path,
+});
 
 const {
   UserFragment,
@@ -46,16 +56,30 @@ const {
 })
 @withAuthentication
 class MessagesDashboard extends Component {
+  currentType = 'public';
+
+  constructor(props) {
+    super(props);
+    this.state = {
+      showAddMessage: false,
+    };
+  }
+
   componentDidMount() {
     this.initPage();
   }
 
   initPage = () => {
     const {
+      requestUserProfile,
       requestUserFriends,
     } = this.props;
       // default request public messages
     this.showPublicMessages();
+
+    // request user profile if page is reloaded
+    // and user still connected
+    requestUserProfile();
 
     // prepare friends list before use
     requestUserFriends();
@@ -70,6 +94,7 @@ class MessagesDashboard extends Component {
   }
 
   showPublicMessages = () => {
+    this.currentType = 'public';
     const {
       requestMessages,
     } = this.props;
@@ -79,6 +104,7 @@ class MessagesDashboard extends Component {
   }
 
   showPrivateMessages = () => {
+    this.currentType = 'private';
     const {
       requestMessages,
     } = this.props;
@@ -94,25 +120,74 @@ class MessagesDashboard extends Component {
     requestLogOutUser();
   }
 
+  openNewMessage = () => {
+    this.setState({
+      showAddMessage: true,
+    });
+  };
+
+  hideNewMessage = () => {
+    this.setState({
+      showAddMessage: false,
+    });
+  };
+
+  onSendMessage = (message) => {
+    // eslint-disable-next-line no-console
+    console.log('onSendMessage message : ', message);
+    this.hideNewMessage();
+    // call requestAddMessage to send message
+  };
+
   render() {
     const {
+      user,
       messages,
       messagesLoading,
       messagesError,
       userFriends,
-      userFriendsLoading,
-      userFriendsError,
     } = this.props;
+    const {
+      showAddMessage,
+    } = this.state;
     return (
-      <div>
-        <AppLayout
-          selectedMenu="home"
-          onMenuSelected={this.onMenuSelected}
-          content={(
-            <div>Coucou</div>
-          )}
-        />
-      </div>
+      <AppLayout
+        selectedMenu="home"
+        onNewMessage={this.openNewMessage}
+        onMenuSelected={this.onMenuSelected}
+        content={(
+          <Spin
+            spinning={messagesLoading}
+            size="large"
+          >
+            {messagesError ? (
+              <Result
+                status="error"
+                title="YoMess !"
+                subTitle={messagesError}
+              />
+            ) : (
+              <div className="user_form_login--page">
+                <MessagesList
+                  path="MessagesList"
+                  messages={messages}
+                />
+                {showAddMessage && (
+                  <MessageAddView
+                    path="MessageAddView"
+                    type={this.currentType}
+                    showAddMessage={showAddMessage}
+                    currentUser={user}
+                    userFriends={userFriends}
+                    onSendMessage={this.onSendMessage}
+                    onCancel={this.hideNewMessage}
+                  />
+                )}
+              </div>
+            )}
+          </Spin>
+        )}
+      />
     );
   }
 }

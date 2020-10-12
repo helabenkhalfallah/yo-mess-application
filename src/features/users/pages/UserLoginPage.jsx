@@ -7,10 +7,14 @@ import {
 } from '../../../core';
 import Path from '../../../routes/Path';
 import {
+  AppLayout,
+} from '../../commons';
+import {
   UserDispatcher,
   UserProvider,
 } from '../redux';
 import UserPropTypes from '../commons/UserPropTypes';
+import '../components/UserForm.scss';
 
 const UserLoginForm = loadable((props) => import(`../components/${props.path}`), {
   fallback: <Spin spinning />,
@@ -76,17 +80,24 @@ class UserLoginPage extends Component {
       userLoginLoading,
     } = this.props;
     return (
-      <Spin
-        spinning={userLoginLoading}
-        size="large"
-      >
-        <UserLoginForm
-          path="UserLoginForm"
-          onLogin={this.onLogin}
-          onRegister={this.onRegister}
-          onPasswordForget={this.onPasswordForget}
-        />
-      </Spin>
+      <AppLayout
+        showSideBar={false}
+        content={(
+          <Spin
+            spinning={userLoginLoading}
+            size="large"
+          >
+            <div className="user_form_login--page">
+              <UserLoginForm
+                path="UserLoginForm"
+                onLogin={this.onLogin}
+                onRegister={this.onRegister}
+                onPasswordForget={this.onPasswordForget}
+              />
+            </div>
+          </Spin>
+        )}
+      />
     );
   }
 }
