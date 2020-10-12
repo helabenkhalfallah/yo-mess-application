@@ -2,6 +2,7 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import Menu from 'antd/es/menu';
 import Layout from 'antd/es/layout';
+import Popconfirm from 'antd/es/popconfirm';
 import {
   HomeOutlined,
   MailOutlined,
@@ -43,12 +44,20 @@ const AppSiderBar = ({
       >
         Messages Privés
       </Menu.Item>
-      <Menu.Item
-        key="logout"
-        icon={<LogoutOutlined />}
+      <Popconfirm
+        placement="left"
+        title="dddddd"
+        onConfirm={null}
+        okText="Yes"
+        cancelText="No"
       >
-        Déconnexion
-      </Menu.Item>
+        <Menu.Item
+          key="logout"
+          icon={<LogoutOutlined />}
+        >
+          Déconnexion
+        </Menu.Item>
+      </Popconfirm>
     </Menu>
   </Sider>
 );
