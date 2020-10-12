@@ -6,8 +6,8 @@ import UserServicesConstants from './UserServicesConstants';
 
 const {
   USER_LOGIN_SERVICE_PATH,
-  USER_UPDATE_SERVICE_PATH,
   USER_LOGOUT_SERVICE_PATH,
+  USER_FRIENDS_SERVICE_PATH,
 } = UserServicesConstants;
 
 const userLoginQuery = (params) => {
@@ -30,19 +30,6 @@ const userLoginQuery = (params) => {
   });
 };
 
-const userUpdateQuery = (params) => {
-  const headers = {
-    Authorization: SessionUtils.loadToken(),
-  };
-
-  return axios({
-    method: 'post',
-    url: USER_UPDATE_SERVICE_PATH,
-    headers,
-    data: params,
-  });
-};
-
 const userLogOutQuery = () => {
   const headers = {
     Authorization: SessionUtils.loadToken(),
@@ -55,10 +42,22 @@ const userLogOutQuery = () => {
   });
 };
 
+const userFriendsQuery = () => {
+  const headers = {
+    Authorization: SessionUtils.loadToken(),
+  };
+
+  return axios({
+    method: 'get',
+    url: USER_FRIENDS_SERVICE_PATH,
+    headers,
+  });
+};
+
 const UserApi = {
   userLoginQuery,
-  userUpdateQuery,
   userLogOutQuery,
+  userFriendsQuery,
 };
 
 export default UserApi;

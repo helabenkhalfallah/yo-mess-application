@@ -11,6 +11,7 @@ import 'antd/es/spin/style';
 import 'antd/es/message/style';
 import 'antd/es/layout/style';
 import 'antd/es/menu/style';
+import 'antd/es/popconfirm/style';
 
 ReactDOM.render(
   // eslint-disable-next-line react/jsx-filename-extension

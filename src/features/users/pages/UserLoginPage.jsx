@@ -1,4 +1,5 @@
 import React, { Component, } from 'react';
+import loadable from '@loadable/component';
 import Spin from 'antd/es/spin';
 import Message from 'antd/es/message';
 import {
@@ -9,10 +10,12 @@ import {
   UserDispatcher,
   UserProvider,
 } from '../redux';
-import {
-  UserLoginForm,
-} from '../components';
 import UserPropTypes from '../commons/UserPropTypes';
+
+const UserLoginForm = loadable((props) => import(`../components/${props.path}`), {
+  fallback: <Spin spinning />,
+  cacheKey: (props) => props.path,
+});
 
 const {
   UserFragment,
@@ -78,6 +81,7 @@ class UserLoginPage extends Component {
         size="large"
       >
         <UserLoginForm
+          path="UserLoginForm"
           onLogin={this.onLogin}
           onRegister={this.onRegister}
           onPasswordForget={this.onPasswordForget}

@@ -7,15 +7,23 @@ const UserLoginFragment = (state) => ({
   userLoginError: state?.user?.loginError,
 });
 
-const UserUpdateFragment = (state) => ({
-  userUpdateLoading: state?.user?.updateLoading,
-  userUpdateError: state?.user?.updateError,
+const UserLogoutFragment = (state) => ({
+  userLogoutStatus: state?.user?.logOutStatus,
+  userLogoutStatusLoading: state?.user?.logOutLoading,
+  userLogoutStatusError: state?.user?.logOutError,
+});
+
+const UserFriendsFragment = (state) => ({
+  userFriends: state?.userFriends?.friends,
+  userFriendsLoading: state?.userFriends?.loading,
+  userFriendsError: state?.userFriends?.error,
 });
 
 const UserProvider = {
   UserFragment,
   UserLoginFragment,
-  UserUpdateFragment,
+  UserLogoutFragment,
+  UserFriendsFragment,
 };
 
 export default UserProvider;

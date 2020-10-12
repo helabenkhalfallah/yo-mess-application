@@ -28,10 +28,7 @@ const {
 
 const Router = () => (
   <Suspense fallback={(
-    <Spin
-      spinning
-      size="default"
-    />
+    <Spin spinning />
   )}
   >
     <BrowserRouter>

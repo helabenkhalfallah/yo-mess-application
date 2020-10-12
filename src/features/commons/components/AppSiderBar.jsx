@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 import PropTypes from 'prop-types';
 import Menu from 'antd/es/menu';
 import Layout from 'antd/es/layout';
@@ -7,6 +7,7 @@ import {
   HomeOutlined,
   MailOutlined,
   LogoutOutlined,
+  QuestionCircleOutlined,
 } from '@ant-design/icons';
 
 const {
@@ -17,50 +18,67 @@ const AppSiderBar = ({
   className,
   selectedMenu,
   onMenuSelected,
-}) => (
-  <Sider
-    className={className}
-    breakpoint="lg"
-    collapsedWidth="0"
-  >
-    <div className="logo" />
-    <Menu
-      theme="light"
-      mode="inline"
-      defaultSelectedKeys={[
-        selectedMenu,
-      ]}
-      onSelect={({ key, }) => onMenuSelected(key)}
+}) => {
+  const [
+    currentSelectedMenu,
+    setCurrentSelectedMenu,
+  ] = useState(selectedMenu);
+  return (
+    <Sider
+      className={className}
+      breakpoint="lg"
+      collapsedWidth="0"
     >
-      <Menu.Item
-        key="home"
-        icon={<HomeOutlined />}
+      <Menu
+        theme="light"
+        mode="inline"
+        defaultSelectedKeys={[
+          currentSelectedMenu,
+        ]}
+        selectedKeys={[
+          currentSelectedMenu,
+        ]}
+        onSelect={({ key, }) => {
+          if (key !== 'logout') {
+            setCurrentSelectedMenu(key);
+            onMenuSelected(key);
+          }
+        }}
       >
-        Acceuil
-      </Menu.Item>
-      <Menu.Item
-        key="messages"
-        icon={<MailOutlined />}
-      >
-        Messages Privés
-      </Menu.Item>
-      <Popconfirm
-        placement="left"
-        title="dddddd"
-        onConfirm={null}
-        okText="Yes"
-        cancelText="No"
-      >
+        <Menu.Item
+          key="home"
+          icon={<HomeOutlined />}
+        >
+          Acceuil
+        </Menu.Item>
+        <Menu.Item
+          key="messages"
+          icon={<MailOutlined />}
+        >
+          Messages Privés
+        </Menu.Item>
         <Menu.Item
           key="logout"
           icon={<LogoutOutlined />}
         >
-          Déconnexion
+          <Popconfirm
+            placement="left"
+            title="Êtes vous sure de vouloir se déconnecter ?"
+            okType="danger"
+            icon={(
+              <QuestionCircleOutlined className="app-layout_sidebar--icon" />
+            )}
+            onConfirm={() => onMenuSelected('logout')}
+            okText="Valider"
+            cancelText="Annuler"
+          >
+            Déconnexion
+          </Popconfirm>
         </Menu.Item>
-      </Popconfirm>
-    </Menu>
-  </Sider>
-);
+      </Menu>
+    </Sider>
+  )
+};
 
 AppSiderBar.propTypes = {
   selectedMenu: PropTypes.string,

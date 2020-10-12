@@ -20,3 +20,9 @@
     padding: 2rem;
     margin: 2rem;
 }
+
+.app-layout_sidebar--icon{
+   > svg {
+    color: red;
+   }
+}

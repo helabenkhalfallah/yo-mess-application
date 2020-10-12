@@ -27,14 +27,15 @@ export default function* logOutWorker() {
 
     // check if we have success or fail logout
     if (logOutResponse
-        && logOutResponse.status === 'OK') {
+        && logOutResponse.status
+         && logOutResponse.status === 'OK') {
       // remove token
       SessionUtils.removeToken();
 
       // dispatch a success action to the store
       yield put({
         type: USER_LOGOUT_REQUEST_SUCCESS,
-        status: logOutResponse,
+        status: logOutResponse.status,
       });
     } else {
       yield put({

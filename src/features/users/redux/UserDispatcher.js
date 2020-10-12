@@ -2,7 +2,8 @@ import UserActionTypes from './UserActionTypes';
 
 const {
   USER_LOGIN_REQUEST,
-  USER_UPDATE_REQUEST,
+  USER_LOGOUT_REQUEST,
+  USER_FRIENDS_REQUEST,
 } = UserActionTypes;
 
 const UserDispatcher = {
@@ -10,9 +11,11 @@ const UserDispatcher = {
     type: USER_LOGIN_REQUEST,
     payload: data,
   }),
-  requestUpdateUser: (data) => ({
-    type: USER_UPDATE_REQUEST,
-    payload: data,
+  requestLogOutUser: () => ({
+    type: USER_LOGOUT_REQUEST,
+  }),
+  requestUserFriends: () => ({
+    type: USER_FRIENDS_REQUEST,
   }),
 };
 

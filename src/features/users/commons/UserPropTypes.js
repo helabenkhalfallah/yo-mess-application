@@ -12,6 +12,8 @@ const propTypes = {
   userLoginLoading: PropTypes.bool,
   userLoginError: PropTypes.string,
   requestLoginUser: PropTypes.func,
+  requestUserFriends: PropTypes.func,
+  requestLogOutUser: PropTypes.func,
 };
 
 const defaultProps = {
@@ -19,6 +21,8 @@ const defaultProps = {
   userLoginLoading: false,
   userLoginError: null,
   requestLoginUser: null,
+  requestUserFriends: null,
+  requestLogOutUser: null,
 };
 
 const UserPropTypes = {
