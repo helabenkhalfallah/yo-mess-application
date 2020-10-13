@@ -1,6 +1,9 @@
 # yo-mess-application
 YoMess (Your Messages) est une application permettant d'envoyer et recevoir des messages à tout moment et en toute sécurité.
 
+https://www.slideshare.net/helabenkhalfallah/yo-messapp
+
+
 ## Comment lancer le projet ?
 
 **Installation des dépendances :**
@@ -28,7 +31,6 @@ http://localhost:9001/user-login
 http://localhost:9001/yo-mess-dashboard
 ```
 
-
 ## Architecture & conception
 https://www.slideshare.net/helabenkhalfallah/yo-messapp
 
@@ -44,20 +46,26 @@ https://medium.com/@helabenkhalfallah/from-mobile-to-web-development-51b39991189
 ## Staff techniques
 
 **Application :**
+
 - React
+
 https://fr.reactjs.org/
 
 - Redux
+
 https://redux.js.org/
 
 - Redux Saga
+
 https://redux-saga.js.org/docs/api/
 
 - antd (librairie des composants atomiques)
+
 https://ant.design/components/overview/
 
 
 **Tests unitaires :**
+
 - Jest
 - Enzyme 
 - Jest snapshots
@@ -67,7 +75,9 @@ https://ant.design/components/overview/
 ## Qualité de code : Eslint & Husky
 
 **Configuration :**
+
 - Airbnb style guide
+
 https://github.com/airbnb/javascript
 
 - Détection de la complexité du code au fur et à mesure du développement :
@@ -169,7 +179,7 @@ https://github.com/airbnb/javascript
 https://eslint.org/docs/user-guide/command-line-interface#caching
 
 
-## Tests unitaires : Jest, Couverture, husky
+## Tests unitaires : Jest, Couverture, Husky
 
 **Exemple de test d'une page :**
 
@@ -190,12 +200,11 @@ https://github.com/helabenkhalfallah/yo-mess-application/blob/main/src/features/
 
 **NB : les tests unitaires des composants et services sont obligatoires.**
 
-- Dans un composant de présentation on teste :
-1. La disposition de la vue
-2. Les classes css utilisées
-3. On valide les règles de gestions
+- Dans un composant de présentation  :
+1. On teste la disposition de la vue.
+2. On teste les classes css utilisées.
+3. On valide les règles de gestions.
 4. On teste le comportement en simulant les actions (onChange, onCLick, ...) via enzyme.
-
 
 **Remarque : les tests unitaires des composants de présentation sont des tests boites noires.**
 
@@ -232,21 +241,23 @@ https://github.com/helabenkhalfallah/yo-mess-application/blob/main/src/features/
 
 - test:coverage est utile pour améliorer au fur et à mesure la couverture des tests unitaires.
 
-## Performance : Webpack Prod, loadable, lazy routes, lazy components, Bundle analyze & Bundle Phobia
+## Performance : Webpack (Configuration Prod), Loadable, Lazy Routes, Lazy Components, Bundle analyze & Bundle Phobia
 
 **Application :**
-- Utilisation du loadable, Suspence & lazy pour créer des lazy routes et des lazy components.
+- Utilisation du Loadable, Suspence & lazy pour créer des lazy routes et des lazy components.
 
 Ce qui en résulte à avoir des chuncks séparés à charger au moment de besoin.
 
-**Webpack :**
+**Webpack - Configuration Prod :**
 
 - Optimisation JS : Terser.
 - Optimisation Style : CssMinimizerPlugin & MiniCssExtractPlugin.
 
-**Avant d'utiliser un package externe, analyser son impact sur la taille finale du bundle avec Bundle Phobia :**
+**Avant d'utiliser un package externe, il est recommandé d'analyser son impact sur la taille finale du bundle avec Bundle Phobia :**
 
 https://bundlephobia.com/
+
+BundlePhobia peut aussi proposer des alternatifs en cas où le package est volumineux.
 
 **Webpack Bundle Analyze :**
 
@@ -258,7 +269,7 @@ Une commande ajoutée pour lancer en local : webpack bundle analyze et optimiser
 
 ## React devtools, Redux devtools & Chrome Audit devtools
 
-Pour assurer une bonne performance, lancer au fur et à mesure de l'avancement de développement les devtools : 
+Pour assurer une bonne performance, il est recommandé de lancer au fur et à mesure de l'avancement de développement les devtools : 
 
 React devtools, Redux devtools & Chrome Audit devtools
 
