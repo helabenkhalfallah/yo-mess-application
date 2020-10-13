@@ -181,32 +181,29 @@ https://eslint.org/docs/user-guide/command-line-interface#caching
 
 ## Tests unitaires : Jest, Couverture, Husky
 
-**Exemple de test d'une page :**
-
-https://github.com/helabenkhalfallah/yo-mess-application/blob/main/src/features/messages/pages/MessagesDashboard-test.jsx
-
-**Exemple de test d'un composant de présentation :**
-
-https://github.com/helabenkhalfallah/yo-mess-application/blob/main/src/features/messages/components/MessagesList-test.jsx
-
-**Exemple de test d'un service GET :**
-
-https://github.com/helabenkhalfallah/yo-mess-application/blob/main/src/features/messages/services/MessagesService-test.js
-
-**Exemple de test d'un service POST :**
-
-https://github.com/helabenkhalfallah/yo-mess-application/blob/main/src/features/messages/services/MessageAddService-test.js
-
-
 **NB : les tests unitaires des composants et services sont obligatoires.**
 
 - Dans un composant de présentation  :
+
 1. On teste la disposition de la vue.
 2. On teste les classes css utilisées.
 3. On valide les règles de gestions.
 4. On teste le comportement en simulant les actions (onChange, onCLick, ...) via enzyme.
 
 **Remarque : les tests unitaires des composants de présentation sont des tests boites noires.**
+
+**Remarque : on utilise Enzyme + Jest + chai pour les composants de présentation.**
+
+- Dans un service  :
+
+1. On teste le cas succès.
+2. On teste le cas d'erreur.
+3. On test le cas d'exception.
+4. En testant le service, on teste aussi l'état final de reducer associé.
+
+**Remarque : on utilise Redux Test Plan pour tester les services saga et les reducers.**
+
+**Remarque : pour les pages on utilise Jest snapshots.**
 
 - Des différents scripts jest sont ajoutés :
 

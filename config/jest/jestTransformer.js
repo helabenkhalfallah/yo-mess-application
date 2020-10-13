@@ -1,7 +1,12 @@
 // eslint-disable-next-line import/no-extraneous-dependencies
 module.exports = require('babel-jest').createTransformer({
   presets: [
-    '@babel/preset-env',
+    [
+      '@babel/preset-env',
+      {
+        useBuiltIns: 'usage',
+      },
+    ],
     '@babel/preset-react',
   ],
 
