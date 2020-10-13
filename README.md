@@ -62,6 +62,7 @@ https://ant.design/components/overview/
 - Enzyme 
 - Jest snapshots
 - Redux Saga Test Plan
+- Redux mock store
 
 ## Qualité de code : Eslint & Husky
 
@@ -170,6 +171,34 @@ https://eslint.org/docs/user-guide/command-line-interface#caching
 
 ## Tests unitaires : Jest, Couverture, husky
 
+**Exemple de test d'une page :**
+
+https://github.com/helabenkhalfallah/yo-mess-application/blob/main/src/features/messages/pages/MessagesDashboard-test.jsx
+
+**Exemple de test d'un composant de présentation :**
+
+https://github.com/helabenkhalfallah/yo-mess-application/blob/main/src/features/messages/components/MessagesList-test.jsx
+
+**Exemple de test d'un service GET :**
+
+https://github.com/helabenkhalfallah/yo-mess-application/blob/main/src/features/messages/services/MessagesService-test.js
+
+**Exemple de test d'un service POST :**
+
+https://github.com/helabenkhalfallah/yo-mess-application/blob/main/src/features/messages/services/MessageAddService-test.js
+
+
+**NB : les tests unitaires des composants et services sont obligatoires.**
+
+- Dans un composant de présentation on teste :
+1. La disposition de la vue
+2. Les classes css utilisées
+3. On valide les règles de gestions
+4. On teste le comportement en simulant les actions (onChange, onCLick, ...) via enzyme.
+
+
+**Remarque : les tests unitaires des composants de présentation sont des tests boites noires.**
+
 - Des différents scripts jest sont ajoutés :
 
 ```
@@ -234,5 +263,3 @@ Pour assurer une bonne performance, lancer au fur et à mesure de l'avancement d
 React devtools, Redux devtools & Chrome Audit devtools
 
 https://developers.google.com/web/tools/lighthouse
-
-
