@@ -2,7 +2,7 @@ module.exports = {
   // how jest will transform ressources
   transform: {
     '^.+\\.(js|jsx|ts)$': '<rootDir>/config/jest/jestTransformer.js',
-    '^.+\\.s?css$': '<rootDir>/config/jest/styleTransformer.js',
+    '^.+\\.(css|less|scss)$': '<rootDir>/config/jest/styleTransformer.js',
     '\\.(jpg|jpeg|png|gif|eot|otf|webp|svg|ttf|woff|woff2|mp4|webm|wav|mp3|m4a|aac|oga)$':
      '<rootDir>/config/jest/assetsTransformer.js',
   },
@@ -44,11 +44,18 @@ module.exports = {
     'js',
     'json',
     'jsx',
+    'ts',
   ],
 
   // The paths to modules that run some code to configure or set up the testing environment before each test
   setupFiles: [
     '<rootDir>/config/jest/enzyme.config.js',
+  ],
+  setupFilesAfterEnv: [
+    '<rootDir>/config/jest/jestOptions.js',
+  ],
+  snapshotSerializers: [
+    'enzyme-to-json/serializer',
   ],
 
   // The test environment that will be used for testing
@@ -64,10 +71,7 @@ module.exports = {
   // An array of regexp pattern strings that are matched against all test paths, matched tests are skipped
   testPathIgnorePatterns: [
     '<rootDir>/node_modules/',
-    '<rootDir>/webpack/',
-    '<rootDir>/dist/',
-    '<rootDir>/public/',
-    '<rootDir>/jest/tmp',
+    '<rootDir>/jest/tmp/',
   ],
 
   // This option sets the URL for the jsdom environment. It is reflected in properties such as location.href
@@ -75,11 +79,9 @@ module.exports = {
 
   // An array of regexp pattern strings that are matched against all source file paths, matched files will skip transformation
   transformIgnorePatterns: [
-    '<rootDir>/node_modules/',
-    '<rootDir>/webpack/',
-    '<rootDir>/dist/',
-    '<rootDir>/jest/tmp',
-    '<rootDir>/public/',
+    // eslint-disable-next-line no-useless-escape
+    '/node_modules/(?!(antd|rc-|@antd))/',
+    '<rootDir>/jest/tmp/',
   ],
 
   // Indicates whether each individual test should be reported during the run

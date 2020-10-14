@@ -184,6 +184,15 @@ https://eslint.org/docs/user-guide/command-line-interface#caching
 
 ## Tests unitaires : Jest, Couverture, Husky
 
+**Exemple d'un TU d'une page :**
+
+**Exemple d'un TU d'un composant de présentation :**
+
+
+**Exemple d'un TU d'un service :**
+
+https://github.com/helabenkhalfallah/yo-mess-application/blob/main/src/features/messages/services/MessagesService-test.js
+
 **NB : les tests unitaires des composants et services sont obligatoires.**
 
 - Dans un composant de présentation  :

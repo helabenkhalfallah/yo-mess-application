@@ -2,72 +2,73 @@ import { expectSaga, } from 'redux-saga-test-plan';
 import { throwError, } from 'redux-saga-test-plan/providers';
 import * as matchers from 'redux-saga-test-plan/matchers';
 import MessagesReducer from '../redux/MessagesReducer';
-import MessagesService from './MessagesService';
+import MessageAddService from './MessageAddService';
 import MessagesApi from './MessagesApi';
 import MessagesDataMock from '../commons/MessagesDataMock';
 
 const {
-  messagesFakeAction,
-  messagesFakeResponse,
+  messageAddFakeAction,
 } = MessagesDataMock;
 
 const {
-  messagesQuery,
+  addMessageQuery,
 } = MessagesApi;
 
-describe('Test Suite - Get Messages Service', () => {
-  it('Get Messages Service (success', () => {
-    const { data, } = messagesFakeResponse;
-    expectSaga(MessagesService, messagesFakeAction)
+describe('Test Suite - Add A Message Service', () => {
+  it('Add A Message Service (success)', () => {
+    const data = {
+      status: 'OK',
+    };
+    expectSaga(MessageAddService, messageAddFakeAction)
       .withReducer(MessagesReducer)
       .provide([
-        matchers.call.fn(messagesQuery), messagesFakeResponse,
+        matchers.call.fn(addMessageQuery), data,
       ])
       .put({
-        type: 'MESSAGES_REQUEST_SUCCESS',
-        messages: data,
+        type: 'MESSAGE_ADD_REQUEST_SUCCESS',
+        messageAdd: data.status,
       })
       .hasFinalState({
         loading: false,
-        messages: data,
+        messageAdd: data.status,
         error: null,
       })
       .run();
   });
-  it('Get Messages Service (fail)', () => {
+  it('Add A Message Service (fail)', () => {
     const data = {};
-    const error = 'Echec lors de la récupération des messages, veuillez réessayez plus tard.';
-    expectSaga(MessagesService, messagesFakeAction)
+    const error = 'Echec lors de l\'ajout du message, veuillez réessayez plus tard.';
+    expectSaga(MessageAddService, messageAddFakeAction)
       .withReducer(MessagesReducer)
       .provide([
-        matchers.call.fn(messagesQuery), data,
+        matchers.call.fn(addMessageQuery), data,
       ])
       .put({
-        type: 'MESSAGES_REQUEST_FAIL',
+        type: 'MESSAGE_ADD_REQUEST_FAIL',
         error,
       })
       .hasFinalState({
         loading: false,
-        messages: null,
+        messageAdd: null,
         error,
       })
       .run();
   });
-  it('Get Messages Service (exception)', () => {
+  it('Add A Message Service (exception)', () => {
     const error = 'Une erreur technique c\'est produite, veuillez réessayez plus tard.';
     const exception = new Error(error);
-    expectSaga(MessagesService, messagesFakeAction)
+    expectSaga(MessageAddService, messageAddFakeAction)
       .withReducer(MessagesReducer)
       .provide([
-        matchers.call.fn(messagesQuery), throwError(exception),
+        matchers.call.fn(addMessageQuery), throwError(exception),
       ])
       .put({
-        type: 'MESSAGES_REQUEST_FAIL',
+        type: 'MESSAGE_ADD_REQUEST_FAIL',
         error,
       })
       .hasFinalState({
         loading: false,
-        messages: null,
+        messageAdd: null,
         error,
       })
       .run();

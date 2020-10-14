@@ -1,0 +1,180 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Test Suite - MessagesDashboardPage Should render error 1`] = `
+<ContextProvider
+  value={
+    Object {
+      "store": Object {
+        "clearActions": [Function],
+        "dispatch": [Function],
+        "getActions": [Function],
+        "getState": [Function],
+        "replaceReducer": [Function],
+        "subscribe": [Function],
+      },
+      "subscription": Subscription {
+        "handleChangeWrapper": [Function],
+        "listeners": Object {
+          "notify": [Function],
+        },
+        "onStateChange": [Function],
+        "parentSub": undefined,
+        "store": Object {
+          "clearActions": [Function],
+          "dispatch": [Function],
+          "getActions": [Function],
+          "getState": [Function],
+          "replaceReducer": [Function],
+          "subscribe": [Function],
+        },
+        "unsubscribe": null,
+      },
+    }
+  }
+>
+  <Connect(AuthenticationComponent)
+    history={Object {}}
+    messages={null}
+    messagesError="Une erreur technique c'est produite, veuillez réessayez plus tard."
+    messagesLoading={false}
+    requestLogOutUser={null}
+    requestLoginUser={null}
+    requestMessages={null}
+    requestUserFriends={null}
+    requestUserProfile={null}
+    user={null}
+    userFriends={null}
+    userLoginError={null}
+    userLoginLoading={false}
+  />
+</ContextProvider>
+`;
+
+exports[`Test Suite - MessagesDashboardPage Should render loading state 1`] = `
+<ContextProvider
+  value={
+    Object {
+      "store": Object {
+        "clearActions": [Function],
+        "dispatch": [Function],
+        "getActions": [Function],
+        "getState": [Function],
+        "replaceReducer": [Function],
+        "subscribe": [Function],
+      },
+      "subscription": Subscription {
+        "handleChangeWrapper": [Function],
+        "listeners": Object {
+          "notify": [Function],
+        },
+        "onStateChange": [Function],
+        "parentSub": undefined,
+        "store": Object {
+          "clearActions": [Function],
+          "dispatch": [Function],
+          "getActions": [Function],
+          "getState": [Function],
+          "replaceReducer": [Function],
+          "subscribe": [Function],
+        },
+        "unsubscribe": null,
+      },
+    }
+  }
+>
+  <Connect(AuthenticationComponent)
+    history={Object {}}
+    messages={null}
+    messagesError={null}
+    messagesLoading={true}
+    requestLogOutUser={null}
+    requestLoginUser={null}
+    requestMessages={null}
+    requestUserFriends={null}
+    requestUserProfile={null}
+    user={null}
+    userFriends={null}
+    userLoginError={null}
+    userLoginLoading={false}
+  />
+</ContextProvider>
+`;
+
+exports[`Test Suite - MessagesDashboardPage Should render messages 1`] = `
+<ContextProvider
+  value={
+    Object {
+      "store": Object {
+        "clearActions": [Function],
+        "dispatch": [Function],
+        "getActions": [Function],
+        "getState": [Function],
+        "replaceReducer": [Function],
+        "subscribe": [Function],
+      },
+      "subscription": Subscription {
+        "handleChangeWrapper": [Function],
+        "listeners": Object {
+          "notify": [Function],
+        },
+        "onStateChange": [Function],
+        "parentSub": undefined,
+        "store": Object {
+          "clearActions": [Function],
+          "dispatch": [Function],
+          "getActions": [Function],
+          "getState": [Function],
+          "replaceReducer": [Function],
+          "subscribe": [Function],
+        },
+        "unsubscribe": null,
+      },
+    }
+  }
+>
+  <Connect(AuthenticationComponent)
+    history={Object {}}
+    messages={
+      Object {
+        "data": Array [
+          Object {
+            "idMessage": "87654321",
+            "messageDate": "08/10/2020",
+            "messageReceiver": null,
+            "messageSender": Object {
+              "userFirstName": "Sean",
+              "userLastName": "Carr",
+              "userMail": "seancarr@hotmail.fr",
+            },
+            "messageText": "23 ème édition du rallye Coeur de France, youpi !",
+            "messageType": "public",
+          },
+          Object {
+            "idMessage": "987654321",
+            "messageDate": "08/10/2020",
+            "messageReceiver": null,
+            "messageSender": Object {
+              "userFirstName": "Isabelle",
+              "userLastName": "Howard",
+              "userMail": "isabellehoward@hotmail.fr",
+            },
+            "messageText": "Des vélos électriques proposés en location longue durée !",
+            "messageType": "public",
+          },
+        ],
+      }
+    }
+    messagesError={null}
+    messagesLoading={false}
+    requestLogOutUser={null}
+    requestLoginUser={null}
+    requestMessages={null}
+    requestUserFriends={null}
+    requestUserProfile={null}
+    user={null}
+    userFriends={null}
+    userLoginError={null}
+    userLoginLoading={false}
+  />
+</ContextProvider>
+`;

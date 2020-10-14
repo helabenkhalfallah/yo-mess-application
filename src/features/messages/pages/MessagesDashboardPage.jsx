@@ -1,7 +1,9 @@
 import React, { Component, } from 'react';
 import loadable from '@loadable/component';
-import Spin from 'antd/es/spin';
-import Result from 'antd/es/result';
+import {
+  Spin,
+  Result,
+} from 'antd';
 import {
   ReduxMe,
   Matcher,
@@ -55,7 +57,7 @@ const {
   ...MessagesDispatcher,
 })
 @withAuthentication
-class MessagesDashboard extends Component {
+class MessagesDashboardPage extends Component {
   currentType = 'public';
 
   constructor(props) {
@@ -136,7 +138,10 @@ class MessagesDashboard extends Component {
     // eslint-disable-next-line no-console
     console.log('onSendMessage message : ', message);
     this.hideNewMessage();
-    // call requestAddMessage to send message
+    const {
+      requestAddMessage,
+    } = this.props;
+    requestAddMessage(message);
   };
 
   render() {
@@ -192,12 +197,12 @@ class MessagesDashboard extends Component {
   }
 }
 
-MessagesDashboard.propTypes = {
+MessagesDashboardPage.propTypes = {
   ...MessagesPropTypes.propTypes,
 };
 
-MessagesDashboard.defaultProps = {
+MessagesDashboardPage.defaultProps = {
   ...MessagesPropTypes.defaultProps,
 };
 
-export default MessagesDashboard;
+export default MessagesDashboardPage;

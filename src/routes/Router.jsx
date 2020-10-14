@@ -23,7 +23,7 @@ const {
 
 const {
   UserLoginPage,
-  MessagesDashboard,
+  MessagesDashboardPage,
 } = LazyRoute;
 
 const Router = () => (
@@ -47,9 +47,9 @@ const Router = () => (
           exact
           path={MESSAGES_DASHBOARD_PATH}
           component={(props) => (
-            <MessagesDashboard
+            <MessagesDashboardPage
               {...props}
-              page="MessagesDashboard"
+              page="MessagesDashboardPage"
             />
           )}
         />
