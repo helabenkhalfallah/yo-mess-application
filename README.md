@@ -186,8 +186,12 @@ https://eslint.org/docs/user-guide/command-line-interface#caching
 
 **Exemple d'un TU d'une page :**
 
+https://github.com/helabenkhalfallah/yo-mess-application/blob/main/src/features/messages/pages/MessagesDashboardPage-test.jsx
+
+
 **Exemple d'un TU d'un composant de présentation :**
 
+https://github.com/helabenkhalfallah/yo-mess-application/blob/main/src/features/messages/components/MessageAddView-test.jsx
 
 **Exemple d'un TU d'un service :**
 
