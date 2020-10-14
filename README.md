@@ -3,10 +3,6 @@ YoMess (Your Messages) est une application permettant d'envoyer et recevoir des 
 
 https://www.slideshare.net/helabenkhalfallah/yo-messapp
 
-
-**(Remarque : Les tests unitaires sont en cours.)**
-
-
 ## Comment lancer le projet ?
 
 **Installation des dépendances :**
