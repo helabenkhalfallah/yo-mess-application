@@ -36,7 +36,7 @@ const messagesFakeResponse = {
       idMessage: '987654321',
       messageType: 'public',
       messageDate: '08/10/2020',
-      messageText: 'Des vélos électriques proposés en location longue durée !',
+      messageText: 'Météo semaine prochaine : comme un avant-goût d\'hiver, le vent de Nord maintiendra les températures à un niveau inférieur de 5°C aux normales de saison, brrrrrr, préparez vos couettes :)))',
       messageSender: {
         userMail: 'isabellehoward@hotmail.fr',
         userFirstName: 'Isabelle',

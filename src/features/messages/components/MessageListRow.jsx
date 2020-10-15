@@ -44,7 +44,7 @@ const MessageListRow = ({
             <Text type="secondary">{messageDate || ''}</Text>
           </>
         )}
-        description={showFullDescription ? description : shortDescription}
+        description={<Text>{showFullDescription ? description : shortDescription}</Text>}
       />
     </List.Item>
   );
