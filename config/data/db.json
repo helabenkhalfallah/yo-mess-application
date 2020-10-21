@@ -1,136 +1,152 @@
 {
-    "login": {
-        "userToken": "WwxxsQQSOPDHDG123g",
+  "login": {
+    "userToken": "WwxxsQQSOPDHDG123g",
+    "userFirstName": "Jean",
+    "userLastName": "Dupont",
+    "userAddresse": "22 Avenue Victore Hugo, 94120, Fontenay Sous Bois",
+    "userPhone": "96222354145"
+  },
+  "user": {
+    "userFirstName": "Jean",
+    "userLastName": "Dupont",
+    "userAddresse": "22 Avenue Victore Hugo, 94120, Fontenay Sous Bois",
+    "userPhone": "96222354145"
+  },
+  "logout": {
+    "status": "OK"
+  },
+  "add-message": {
+    "message": null,
+    "sender": {
+      "userFirstName": "Jean",
+      "userLastName": "Dupont",
+      "userAddresse": "22 Avenue Victore Hugo, 94120, Fontenay Sous Bois",
+      "userPhone": "96222354145"
+    },
+    "receiver": null
+  },
+  "delete-message": {
+    "status": "OK"
+  },
+  "friends": [
+    {
+      "userMail": "mellalaurent@hotmail.fr",
+      "userFirstName": "Mella",
+      "userLastName": "Laurent"
+    },
+    {
+      "userMail": "isabellehoward@hotmail.fr",
+      "userFirstName": "Isabelle",
+      "userLastName": "Howard"
+    },
+    {
+      "userMail": "seancarr@hotmail.fr",
+      "userFirstName": "Sean",
+      "userLastName": "Carr"
+    }
+  ],
+  "public-messages": [
+    {
+      "idMessage": "123456789",
+      "messageType": "public",
+      "messageDate": "08/10/2020",
+      "messageText": "Météo semaine prochaine : comme un avant-goût d'hiver, le vent de Nord maintiendra les températures à un niveau inférieur de 5°C aux normales de saison, brrrrrr, préparez vos couettes :)))",
+      "messageSender": {
+        "userMail": "mellalaurent@hotmail.fr",
+        "userFirstName": "Mella",
+        "userLastName": "Laurent"
+      },
+      "messageReceiver": null
+    },
+    {
+      "idMessage": "987654321",
+      "messageType": "public",
+      "messageDate": "08/10/2020",
+      "messageText": "Des vélos électriques proposés en location longue durée !",
+      "messageSender": {
+        "userMail": "isabellehoward@hotmail.fr",
+        "userFirstName": "Isabelle",
+        "userLastName": "Howard"
+      },
+      "messageReceiver": null
+    },
+    {
+      "idMessage": "87654321",
+      "messageType": "public",
+      "messageDate": "08/10/2020",
+      "messageText": "23 ème édition du rallye Coeur de France, youpi !",
+      "messageSender": {
+        "userMail": "seancarr@hotmail.fr",
+        "userFirstName": "Sean",
+        "userLastName": "Carr"
+      },
+      "messageReceiver": null
+    }
+  ],
+  "private-messages": [
+    {
+      "idMessage": "AA123456789",
+      "messageType": "private",
+      "messageDate": "08/10/2020",
+      "messageText": "Salut Jean, la proposition de décoration pour la chambre des filles est prête, je te propose de passer te voir ce soir ou samedi matin. Je te souhaite une bonne journée. A bientôt !",
+      "messageSender": {
+        "userMail": "mellalaurent@hotmail.fr",
+        "userFirstName": "Mella",
+        "userLastName": "Laurent"
+      },
+      "messageReceiver": {
+        "userMail": "jeandupont@gmail.com",
         "userFirstName": "Jean",
-        "userLastName": "Dupont",
-        "userAddresse": "22 Avenue Victore Hugo, 94120, Fontenay Sous Bois",
-        "userPhone": "96222354145" 
+        "userLastName": "Dupont"
+      }
     },
-    "user": {
+    {
+      "idMessage": "BB987654321",
+      "messageType": "private",
+      "messageDate": "08/10/2020",
+      "messageText": "Salut Jean, que penses-tu de prendre un café ?",
+      "messageSender": {
+        "userMail": "isabellehoward@hotmail.fr",
+        "userFirstName": "Isabelle",
+        "userLastName": "Howard"
+      },
+      "messageReceiver": {
+        "userMail": "jeandupont@gmail.com",
         "userFirstName": "Jean",
-        "userLastName": "Dupont",
-        "userAddresse": "22 Avenue Victore Hugo, 94120, Fontenay Sous Bois",
-        "userPhone": "96222354145" 
+        "userLastName": "Dupont"
+      }
     },
-    "logout": {
-        "status": "OK"
+    {
+      "idMessage": "CC987654321",
+      "messageType": "private",
+      "messageDate": "08/10/2020",
+      "messageText": "Salut Jean, que penses-tu de venir chez nous ce weekend ?",
+      "messageSender": {
+        "userMail": "seancarr@hotmail.fr",
+        "userFirstName": "Sean",
+        "userLastName": "Carr"
+      },
+      "messageReceiver": {
+        "userMail": "jeandupont@gmail.com",
+        "userFirstName": "Jean",
+        "userLastName": "Dupont"
+      }
     },
-    "add-message": {
-        "status": "OK"
-    },
-    "delete-message": {
-        "status": "OK"
-    },
-    "friends":[
-        {
-            "userMail": "mellalaurent@hotmail.fr",
-            "userFirstName": "Mella",
-            "userLastName": "Laurent"
-        },
-        {
-            "userMail": "isabellehoward@hotmail.fr",
-            "userFirstName": "Isabelle",
-            "userLastName": "Howard"
-        },
-        {
-            "userMail": "seancarr@hotmail.fr",
-            "userFirstName": "Sean",
-            "userLastName": "Carr"
-        }
-    ],
-    "public-messages": [{
-        "idMessage": "123456789",
-        "messageType": "public",
-        "messageDate": "08/10/2020",
-        "messageText": "Météo semaine prochaine : comme un avant-goût d'hiver, le vent de Nord maintiendra les températures à un niveau inférieur de 5°C aux normales de saison, brrrrrr, préparez vos couettes :)))",
-        "messageSender": {
-            "userMail": "mellalaurent@hotmail.fr",
-            "userFirstName": "Mella",
-            "userLastName": "Laurent"
-        },
-        "messageReceiver": null
-    }, {
-        "idMessage": "987654321",
-        "messageType": "public",
-        "messageDate": "08/10/2020",
-        "messageText": "Des vélos électriques proposés en location longue durée !",
-        "messageSender": {
-            "userMail": "isabellehoward@hotmail.fr",
-            "userFirstName": "Isabelle",
-            "userLastName": "Howard"
-        },
-        "messageReceiver": null
-    }, {
-        "idMessage": "87654321",
-        "messageType": "public",
-        "messageDate": "08/10/2020",
-        "messageText": "23 ème édition du rallye Coeur de France, youpi !",
-        "messageSender": {
-            "userMail": "seancarr@hotmail.fr",
-            "userFirstName": "Sean",
-            "userLastName": "Carr"
-        },
-        "messageReceiver": null
-    }],
-    "private-messages": [{
-        "idMessage": "AA123456789",
-        "messageType": "private",
-        "messageDate": "08/10/2020",
-        "messageText": "Salut Jean, la proposition de décoration pour la chambre des filles est prête, je te propose de passer te voir ce soir ou samedi matin. Je te souhaite une bonne journée. A bientôt !",
-        "messageSender": {
-            "userMail": "mellalaurent@hotmail.fr",
-            "userFirstName": "Mella",
-            "userLastName": "Laurent"
-        },
-        "messageReceiver": {
-            "userMail": "jeandupont@gmail.com",
-            "userFirstName": "Jean",
-            "userLastName": "Dupont"
-        }
-    }, {
-        "idMessage": "BB987654321",
-        "messageType": "private",
-        "messageDate": "08/10/2020",
-        "messageText": "Salut Jean, que penses-tu de prendre un café ?",
-        "messageSender": {
-            "userMail": "isabellehoward@hotmail.fr",
-            "userFirstName": "Isabelle",
-            "userLastName": "Howard"
-        },
-        "messageReceiver": {
-            "userMail": "jeandupont@gmail.com",
-            "userFirstName": "Jean",
-            "userLastName": "Dupont"
-        }
-    }, {
-        "idMessage": "CC987654321",
-        "messageType": "private",
-        "messageDate": "08/10/2020",
-        "messageText": "Salut Jean, que penses-tu de venir chez nous ce weekend ?",
-        "messageSender": {
-            "userMail": "seancarr@hotmail.fr",
-            "userFirstName": "Sean",
-            "userLastName": "Carr"
-        },
-        "messageReceiver": {
-            "userMail": "jeandupont@gmail.com",
-            "userFirstName": "Jean",
-            "userLastName": "Dupont"
-        }
-    }, {
-        "idMessage": "DD987654321",
-        "messageType": "private",
-        "messageDate": "08/10/2020",
-        "messageText": "Salut Sean, j'ai reçu ton message, je te tiens au courant si je peux venir le weekend, à bientôt !",
-        "messageSender": {
-            "userMail": "jeandupont@gmail.com",
-            "userFirstName": "Jean",
-            "userLastName": "Dupont"
-        },
-        "messageReceiver": {
-            "userMail": "seancarr@hotmail.fr",
-            "userFirstName": "Sean",
-            "userLastName": "Carr"
-        }
-    }]
+    {
+      "idMessage": "DD987654321",
+      "messageType": "private",
+      "messageDate": "08/10/2020",
+      "messageText": "Salut Sean, j'ai reçu ton message, je te tiens au courant si je peux venir le weekend, à bientôt !",
+      "messageSender": {
+        "userMail": "jeandupont@gmail.com",
+        "userFirstName": "Jean",
+        "userLastName": "Dupont"
+      },
+      "messageReceiver": {
+        "userMail": "seancarr@hotmail.fr",
+        "userFirstName": "Sean",
+        "userLastName": "Carr"
+      }
+    }
+  ]
 }

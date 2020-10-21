@@ -50,7 +50,7 @@ const MessageAddView = ({
             value={receiver}
             onChange={(value) => setReceiver(value)}
           >
-            {userFriends.map((friend) => {
+            {userFriends?.map((friend) => {
               const {
                 userFirstName,
                 userLastName,
