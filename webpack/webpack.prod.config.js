@@ -33,7 +33,6 @@ module.exports = {
       {
         test: /\.s[ac]ss$/i,
         use: [
-          'style-loader',
           'css-loader',
           'sass-loader',
         ],
@@ -42,9 +41,6 @@ module.exports = {
         test: /\.less$/,
         use: [
           MiniCssExtractPlugin.loader,
-          {
-            loader: 'style-loader',
-          },
           {
             loader: 'css-loader',
           },
@@ -66,7 +62,13 @@ module.exports = {
       '.json',
       '.jsx',
       '.css',
+      '.less',
     ],
+    fallback: {
+      util: false,
+      buffer: false,
+      stream: false,
+    },
   },
   plugins: [
     new MiniCssExtractPlugin({

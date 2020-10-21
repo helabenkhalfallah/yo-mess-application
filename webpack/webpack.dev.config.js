@@ -69,7 +69,13 @@ module.exports = {
       '.json',
       '.jsx',
       '.css',
+      '.less',
     ],
+    fallback: {
+      util: false,
+      buffer: false,
+      stream: false,
+    },
   },
   plugins: [
     new HtmlWebPackPlugin({
