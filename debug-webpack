@@ -62,6 +62,94 @@
 }
 
 
+
+
+
+const { merge } = require('webpack-merge');
+const Dev = require('./webpack.dev');
+const Prod = require('./webpack.prod');
+
+const baseConfig = {
+  module: {
+    rules: [
+      {
+        test: /\.(js|jsx)$/,
+        exclude: /node_modules/,
+        use: [
+            'babel-loader'
+        ],
+      },
+      {
+        test: /\.scss$/,
+        loaders: [
+          'style-loader',
+          'css-loader',
+          'resolve-url-loader',
+          {
+            loader: 'sass-loader',
+            options: {
+              sourceMap: true
+            }
+          },
+        ],
+        exclude: /node_modules/,
+      },
+      {
+        test: /\.css$/,
+        use: [
+          { loader: 'style-loader' },
+          { loader: 'css-loader' },
+        ],
+        exclude: /node_modules/,
+      },
+      {
+        test: /\.less$/,
+        use: [
+          { loader: 'style-loader' },
+          { loader: 'css-loader' },
+          {
+            loader: 'less-loader',
+            options: {
+              // customize ant design theme : https://ant.design/docs/react/use-with-create-react-app#Customize-Theme
+              javascriptEnabled: true,
+            },
+          },
+        ],
+        exclude: /node_modules/,
+      },
+      {
+        test: /\.(jpe?g|png|gif|svg)$/,
+        loader: 'url-loader',
+        options: {
+          limit: 8192,
+          name: 'assets/img/[name].[ext]',
+        },
+      },
+      {
+        test: /\.(ttf|eot|otf|woff2?)$/,
+        loader: 'url-loader',
+        options: {
+          limit: 8192,
+          name: 'assets/fonts/[name].[ext]',
+        },
+      },
+    ],
+  },
+  resolve: {
+    extensions: ['*', '.js', '.jsx'],
+  }
+};
+
+const devConfig = merge(baseConfig, Dev);
+const prodConfig = merge(baseConfig, Prod);
+
+module.exports.devConfig = devConfig;
+module.exports.prodConfig = prodConfig;
+
+
+
+
+
 const path = require('path');
 
 module.exports = {
