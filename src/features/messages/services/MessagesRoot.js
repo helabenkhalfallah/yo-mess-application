@@ -1,4 +1,4 @@
-import { takeEvery, } from 'redux-saga/effects';
+import { takeLatest, } from 'redux-saga/effects';
 import {
   MessagesActionTypes,
 } from '../redux';
@@ -13,9 +13,9 @@ const {
 } = MessagesActionTypes;
 
 const MessagesRoot = [
-  takeEvery(MESSAGE_ADD_REQUEST, MessageAddService),
-  takeEvery(MESSAGE_DELETE_REQUEST, MessageDeleteService),
-  takeEvery(MESSAGES_REQUEST, MessagesService),
+  takeLatest(MESSAGE_ADD_REQUEST, MessageAddService),
+  takeLatest(MESSAGE_DELETE_REQUEST, MessageDeleteService),
+  takeLatest(MESSAGES_REQUEST, MessagesService),
 ];
 
 export default MessagesRoot;

@@ -3,3 +3,4 @@ node_modules/
 stats.json
 .eslintcache
 jest/tmp/
+.DS_Store
