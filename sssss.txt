@@ -1,0 +1,397 @@
+{
+  "name": "awt-bwd",
+  "version": "1.0.0-alpha",
+  "description": "Template React pour l'AWT v5",
+  "author": "Team Awt v5",
+  "license": "ISC",
+  "main": "index.js",
+  "sideEffects": [
+    "**/*.css",
+    "**/*.scss",
+    "**/*.less"
+  ],
+  "scripts": {
+    "start": "webpack-dev-server --progress --colors --config ./webpack/webpack.dev.js --inline --hot",
+    "build:dev": "webpack --config ./webpack/webpack.dev.js",
+    "build:debug-prod": "webpack --config ./webpack/webpack.debug-prod.js",
+    "build:prod": "webpack --config ./webpack/webpack.prod.js",
+    "analyze": "webpack --config ./webpack/webpack.prod.js  --profile --json > stats-prod.json && webpack-bundle-analyzer stats-prod.json dist/",
+    "test": "jest --coverage",
+    "test:nocoverage": "jest",
+    "test:update": "jest --updateSnapshot",
+    "test:watch": "jest --watch",
+    "lint": "eslint --config ./.eslintrc.js --ignore-path ./.eslintignore --cache-location ./.eslintcache \"js/**/*.js\" \"js/**/*.jsx\" --cache",
+    "lint:debug": "eslint --config ./.eslintrc.js --ignore-path ./.eslintignore --cache-location ./.eslintcache \"js/**/*.js\" \"js/**/*.jsx\" --cache --debug",
+    "lint:fix": "eslint --config ./.eslintrc.js --ignore-path ./.eslintignore --cache-location ./.eslintcache \"js/**/*.js\" \"js/**/*.jsx\" --cache --fix",
+    "add-feature": "npm explore --shell bash awt-react-cli -- npm run add-feature",
+    "add-page": "npm explore --shell bash awt-react-cli -- npm run add-page",
+    "add-service": "npm explore --shell bash awt-react-cli -- npm run add-service",
+    "add-component": "npm explore --shell bash awt-react-cli -- npm run add-component",
+    "add-hoc": "npm explore --shell bash awt-react-cli -- npm run add-hoc"
+  },
+  "husky": {
+    "hooks": {
+      "pre-commit": "npm run lint",
+      "pre-push": "npm run test"
+    }
+  },
+  "keywords": [],
+  "dependencies": {
+    "awt-audience": "=4.1.0",
+    "awt-bootstraper": "=4.0.3",
+    "awt-common-log": "=4.8.1",
+    "awt-gda-loader": "=4.1.2",
+    "awt-natif": "=4.7.1",
+    "awt-natif-pro-ent": "=4.0.1",
+    "awt-react-extras": "=0.4.1",
+    "awt-sg-sign-in": "=2.6.0",
+    "axios": "=0.18.0",
+    "core-js": "=3.9.1",
+    "date-fns": "=2.25.0",
+    "jquery": "^3.2.1",
+    "prop-types": "=15.7.2",
+    "react": "=17.0.0",
+    "react-dom": "=17.0.0",
+    "react-hot-loader": "=4.13.0",
+    "react-redux": "=7.1.3",
+    "react-router-dom": "=5.2.0",
+    "redux": "=4.0.5",
+    "redux-saga": "=1.1.3",
+    "regenerator-runtime": "=0.13.7",
+    "sg-button": "=2.5.0",
+    "sg-card": "=2.5.0",
+    "sg-carousel": "2.5.1-develop-1632501088350.alpha.0",
+    "sg-components": "=2.17.0-master-alpha",
+    "sg-divider": "=1.4.0",
+    "sg-grid": "=2.5.0",
+    "sg-icon": "=2.5.0",
+    "sg-icon-pack-base": "=2.5.0",
+    "sg-icon-pack-cdn": "=2.5.0",
+    "sg-image": "=1.3.1-feature-sg-icon-avenir-2-1632757062347.alpha.0",
+    "sg-layout": "=2.5.0",
+    "sg-link": "=1.5.0",
+    "sg-list": "=2.3.1-feature-sg-grid-version-update-1632300768216.alpha.0",
+    "sg-media-query": "=1.5.1-fix-sg-drawer-cms-1633528665051.alpha.0",
+    "sg-message": "=2.5.0",
+    "sg-popover": "=2.4.0",
+    "sg-select": "=2.5.0",
+    "sg-space": "=0.2.1-fix-couleurs-agence-1632917073207.alpha.0",
+    "sg-spinner": "=2.5.1-develop-1632751446326.alpha.0",
+    "sg-tabs": "=2.5.0",
+    "sg-themes": "=2.5.0",
+    "sg-typo": "=2.5.0",
+    "sg_npm_components-plus-core": "=0.4.1",
+    "url-search-params-polyfill": "=5.1.0"
+  },
+  "devDependencies": {
+    "@babel/eslint-parser": "=7.13.14",
+    "@babel/eslint-plugin": "=7.13.16",
+    "@babel/parser": "=7.7.5",
+    "@babel/plugin-proposal-class-properties": "=7.13.0",
+    "@babel/plugin-proposal-decorators": "=7.13.15",
+    "@babel/plugin-proposal-nullish-coalescing-operator": "=7.13.8",
+    "@babel/plugin-proposal-optional-chaining": "=7.13.12",
+    "@babel/plugin-transform-runtime": "=7.13.15",
+    "@babel/preset-env": "=7.14.1",
+    "@babel/preset-react": "=7.13.13",
+    "@wojtekmaj/enzyme-adapter-react-17": "=0.6.1",
+    "awt-react-cli": "=1.1.3",
+    "awt-webpack-config": "=4.1.9",
+    "babel-jest": "=23.6.0",
+    "chai": "=4.2.0",
+    "css-loader": "=3.4.2",
+    "enzyme": "=3.11.0",
+    "enzyme-adapter-react-16": "=1.15.5",
+    "enzyme-to-json": "=3.4.0",
+    "eslint": "=7.17.0",
+    "eslint-config-airbnb": "=18.2.1",
+    "eslint-plugin-import": "=2.22.1",
+    "eslint-plugin-jsx-a11y": "=6.4.1",
+    "eslint-plugin-react": "=7.22.0",
+    "husky": "=3.1.0",
+    "jest": "=26.6.3",
+    "jest-sonar-reporter": "=2.0.0",
+    "jest-stare": "=2.2.0",
+    "redux-mock-store": "=1.5.3",
+    "redux-saga-test-plan": "=4.0.0-rc.3",
+    "sass-loader": "=8.0.2",
+    "webpack": "=4.43.0",
+    "webpack-bundle-analyzer": "=3.8.0"
+  },
+  "jest": {
+    "reportPath": "target/jest-sonar",
+    "reportFile": "jest-sonar-reporter.xml",
+    "collectCoverageFrom": [
+      "**/*.{js,jsx}",
+      "!coverage/**",
+      "!node_modules/**",
+      "!src/index.js",
+      "!src/setupTests.js",
+      "!public/**",
+      "!build/**"
+    ],
+    "coverageReporters": [
+      "lcov"
+    ]
+  },
+  "jest-junit": {
+    "output": "target/jest-sonar/test-report.junit.xml"
+  }
+}
+
+
+
+module.exports = function (api) {
+  api.cache(true);
+
+  const presets = [
+    '@babel/preset-react',
+    [
+      '@babel/preset-env',
+      {
+        modules: false,
+        targets: {
+          browsers: [
+            'chrome >= 41',
+            'ie >= 9',
+            'firefox >= 36',
+            'and_ff >= 36',
+            'android >= 4.4',
+            'iOS >= 8',
+            'last 1 samsung versions',
+          ],
+        },
+      },
+    ],
+  ];
+
+  const plugins = [
+    [
+      '@babel/plugin-proposal-decorators', {
+        legacy: true,
+      },
+    ],
+    '@babel/plugin-proposal-optional-chaining',
+    '@babel/plugin-proposal-nullish-coalescing-operator',
+    '@babel/plugin-proposal-class-properties',
+    '@babel/transform-runtime',
+    'react-hot-loader/babel',
+  ];
+
+  return {
+    presets,
+    plugins,
+  };
+};
+
+import 'core-js/es/promise';
+import 'core-js/es/array';
+import 'core-js/es/number';
+import 'core-js/es/object/assign';
+import 'core-js/es/symbol/iterator';
+import 'core-js/es/string/replace-all';
+import 'core-js/es/string/pad-start';
+import 'regenerator-runtime/runtime';
+import React from 'react';
+import ReactDOM from 'react-dom';
+import { withReduxBoot, } from 'awt-react-extras';
+import {
+  ReducerRoot,
+  SagaRoot,
+} from './commons';
+
+
+import { lazy, } from 'react';
+
+const OstASaisirHomePage = (
+  lazy(() => (
+    import('./features/ost-a-saisir/pages/OstASaisirHomePage')
+  ))
+);
+
+
+
+module.exports = {
+  env: {
+    browser: true,
+    commonjs: true,
+    es6: true,
+    jest: true,
+  },
+  parser: '@babel/eslint-parser',
+  extends: [
+    'airbnb',
+  ],
+  globals: {
+    shallow: true,
+    render: true,
+    mount: true,
+  },
+  parserOptions: {
+    ecmaVersion: 2018,
+    ecmaFeatures: {
+      jsx: true,
+    },
+    sourceType: 'module',
+    babelOptions: {
+      configFile: './babel.config.js',
+    },
+  },
+  plugins: [
+    '@babel',
+    'react',
+    'jsx-a11y',
+  ],
+  overrides: [
+    {
+      files: [
+        '**/*-Test.js?(x)',
+        '**/*.test.js?(x)',
+        '**/*-test.js?(x)',
+        '**/*.spec.js',
+      ],
+      rules: {
+        'max-lines-per-function': 'off',
+        'max-statements': 'off',
+        'max-depth': 'off',
+        'max-lines': 'off',
+        'max-nested-callbacks': 'off',
+      },
+    },
+    {
+      files: [
+        '*.jsx',
+      ],
+      rules: {
+        'max-lines-per-function': 'off',
+        'max-statements': 'off',
+      },
+    },
+  ],
+  rules: {
+    'react/jsx-props-no-spreading': 0,
+    // maximum depth that blocks can be nested
+    // https://eslint.org/docs/rules/max-depth
+    'max-depth': [
+      'error',
+      3,
+    ],
+
+    // maximum depth that callbacks can be nested
+    // https://eslint.org/docs/rules/max-nested-callbacks
+    'max-nested-callbacks': [
+      'error',
+      2,
+    ],
+
+    // maximum line length
+    // https://eslint.org/docs/rules/max-len
+    'max-len': [
+      1,
+      120,
+      2, {
+        ignoreComments: true,
+      },
+    ],
+
+    // maximum file length
+    // https://eslint.org/docs/rules/max-lines
+    'max-lines': [
+      'error',
+      {
+        max: 1500,
+        skipBlankLines: true,
+        skipComments: true,
+      },
+    ],
+
+    // maximum function length
+    // https://eslint.org/docs/rules/max-lines-per-function
+    'max-lines-per-function': [
+      'error',
+      {
+        max: 100,
+        skipBlankLines: true,
+        skipComments: true,
+        IIFEs: true,
+      },
+    ],
+
+    // maximum number of statements allowed in function blocks
+    // https://eslint.org/docs/rules/max-statements
+    'max-statements': [
+      'error',
+      20,
+    ],
+
+    // maximum number of parameters in function definitions
+    // https://eslint.org/docs/rules/max-params
+    'max-params': [
+      'error',
+      3,
+    ],
+
+    // max props per line
+    // https://github.com/yannickcr/eslint-plugin-react/blob/master/docs/rules/jsx-max-props-per-line.md#limit-maximum-of-props-on-a-single-line-in-jsx-reactjsx-max-props-per-line
+    'react/jsx-max-props-per-line': [
+      1, {
+        maximum: 1,
+        when: 'always',
+      },
+    ],
+
+    // prefer state inside class rather than constructor
+    'react/state-in-constructor': 0,
+
+    'linebreak-style': [
+      'error',
+      'unix',
+    ],
+
+    indent: [
+      2,
+      2,
+      {
+        SwitchCase: 1,
+      },
+    ],
+
+    'comma-dangle': [
+      2,
+      {
+        arrays: 'always',
+        objects: 'always',
+        imports: 'always',
+        exports: 'always',
+        functions: 'never',
+      },
+    ],
+
+    'no-console': 'error',
+
+    'react/static-property-placement': [
+      2,
+      'static public field',
+      {
+        defaultProps: 'static public field',
+        propTypes: 'static public field',
+      },
+    ],
+
+    'import/no-extraneous-dependencies': [
+      'error', {
+        devDependencies: [
+          '**/*-Test.js?(x)',
+          '**/*.test.js?(x)',
+          '**/*-test.js?(x)',
+          '**/*.spec.js',
+          '**/webpack.*.js',
+          '**/jestTransformer.js',
+          '**/setupTests.js',
+        ],
+        optionalDependencies: false,
+      },
+    ],
+  },
+};
+
